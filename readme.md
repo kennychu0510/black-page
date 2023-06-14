@@ -1,5 +1,6 @@
 # Black page
+- use on secondary monitor when watching movies on the primary monitor
 - hides cursor
 - time display
 - f to full-screen
-- use on secondary monitor when watching movies on the primary monitor
+- t to toggle time display

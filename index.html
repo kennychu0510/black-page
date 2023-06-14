@@ -23,7 +23,10 @@
       div {
         color: white;
         opacity: 0.3;
-        font-size: larger;
+        font-size: xx-large;
+      }
+      .hide {
+        display: none;
       }
     </style>
   </head>
@@ -31,6 +34,7 @@
     <div id="time"></div>
   </body>
   <script>
+    const time = document.querySelector('#time')
     function toggleFullScreen() {
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
@@ -44,12 +48,13 @@
       (e) => {
         if (e.key === 'f') {
           toggleFullScreen();
+        } else if (e.key === 't') {
+          time.classList.toggle('hide')
         }
       },
       false
     );
 
-    const time = document.querySelector('#time')
     setInterval(() => {
       time.innerHTML = new Date().toLocaleTimeString(undefined, {
         hour: '2-digit',
