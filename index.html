@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Black Page</title>
+    <style>
+      :root {
+        background-color: black;
+        height: 100vh;
+        width: 100vw;
+      }
+      :root:hover {
+        cursor: none;
+      }
+      body {
+        display: grid;
+        place-items: center;
+        height: 100%;
+        margin: 0;
+      }
+      div {
+        color: white;
+        opacity: 0.3;
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="time"></div>
+  </body>
+  <script>
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+
+    document.addEventListener(
+      'keydown',
+      (e) => {
+        if (e.key === 'f') {
+          toggleFullScreen();
+        }
+      },
+      false
+    );
+
+    const time = document.querySelector('#time')
+    setInterval(() => {
+      time.innerHTML = new Date().toLocaleTimeString(undefined, {
+        hour: '2-digit',
+        minute: '2-digit',
+      })
+    }, 1000)
+  </script>
+</html>
